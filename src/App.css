@@ -5,6 +5,7 @@
 ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 li {
@@ -13,4 +14,9 @@ li {
   padding: 8px;
   border: whitesmoke 3px solid;
   border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+li:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
