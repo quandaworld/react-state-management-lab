@@ -87,37 +87,23 @@ function App() {
     },
   ]);
 
-  // Handler to add a fighter to the team
   const handleAddFighter = (fighter) => {
-    // Check if there's enough money
     if (money < fighter.price) {
       console.log("Out of money");
       return;
     }
 
-    // Add fighter to the team
     setTeam([...team, fighter]);
-
-    // Remove fighter from available fighters
     setZombieFighters(zombieFighters.filter(availableFighter => availableFighter.id !== fighter.id));
-
-    // Subtract the cost
     setMoney(money - fighter.price);
   };
 
-  // Handler to remove a fighter from the team
   const handleRemoveFighter = (fighter) => {
-    // Remove fighter from the team
     setTeam(team.filter(teamMember => teamMember.id !== fighter.id));
-
-    // Add fighter back to available fighters
     setZombieFighters([...zombieFighters, fighter]);
-
-    // Refund the cost
     setMoney(money + fighter.price);
   };
 
-  // Calculate team stats
   const totalStrength = team.reduce((total, fighter) => total + fighter.strength, 0);
   const totalAgility = team.reduce((total, fighter) => total + fighter.agility, 0);
 
